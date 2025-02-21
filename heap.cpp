@@ -118,3 +118,38 @@ void maxHeap::removeLargest() {
         index = largest; //Move down to the new index
     }
 }
+
+void maxHeap::print() {
+    //This will print out the entire heap
+    if (size == 0) {
+        cout << "Heap is empty. " << endl;
+        return;
+    }
+    if (size == 1) { //If the size is 1 just print it out immediately, to avoid any possible errors
+        cout << heap[1] << endl;
+        return;
+    }
+    //Print helper functino
+    printHelper(1, 0); //Start at the root and at level 0
+}
+
+void maxHeap::printHelper(int index, int level) {
+    if (index > size) {
+        return; //Base case, if index is bigger then the size of the heap stop printing
+    }
+
+    printHelper(2 * index + 1, level + 1); //Print the right child first (so its on the right side like the example)
+
+    for (int i = 0; i < level; ++i) {
+        cout << "\t"; //Add a tab for each level
+    }
+    cout << heap[index] << endl; //Print the current node value
+
+    printHelper(2 * index, level + 1); //Print the left child next
+}
+
+
+void maxHeap::removeAll() {
+    size = 0; //Sets the size to 0, so all other functions will treat this as an empty heap.
+    cout << "All elements removed from the heap. " << endl;
+}

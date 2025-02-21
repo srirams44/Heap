@@ -7,8 +7,12 @@ public:
     maxHeap();
     ~maxHeap();
     void add();
+    void print();
+    void printHelper(int index, int level);
     void addHelper(int value);
     void removeLargest();
+    void removeAll();
+
 
 
 private:
