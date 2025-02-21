@@ -1,16 +1,14 @@
 #ifndef TREE_H
 #define TREE_H
 
-#include <iostream>
-#include <cmath>
-
-using namespace std;
 
 class maxHeap {
 public:
     maxHeap();
     ~maxHeap();
-    void ADD(int value);
+    void add();
+    void addHelper(int value);
+    void removeLargest();
 
 
 private:
